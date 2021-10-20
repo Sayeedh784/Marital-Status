@@ -6,6 +6,8 @@ from django.http import Http404
 from django.template.loader import get_template
 from xhtml2pdf import pisa
 from django.views.generic import ListView
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 def home(request):
   return render(request,'home.html')
@@ -38,7 +40,7 @@ def register(request):
   }
   return render(request,'registers.html',context)
 
-
+@login_required
 def checkbridesNid(request):
   if request.method == "POST":
     form = BrideNidForm(request.POST)
@@ -67,7 +69,7 @@ def checkbridesNid(request):
     context={'form':form}
   return render(request,'bridenid.html',context)
 
-
+@login_required
 def checkbridesbc(request):
   if request.method == "POST":
     form = BrideBirthCertificateForm(request.POST)
@@ -96,7 +98,7 @@ def checkbridesbc(request):
     context={'form':form}
   return render(request,'bridenid.html',context)
 
-
+@login_required
 def checkbridespp(request):
   if request.method == "POST":
     form = BridePassportForm(request.POST)
@@ -125,7 +127,7 @@ def checkbridespp(request):
     context={'form':form}
   return render(request,'bridenid.html',context)
 
-
+@login_required
 #grooms status check
 def checkgroomsNid(request):
   if request.method == "POST":
@@ -155,7 +157,7 @@ def checkgroomsNid(request):
     context={'form':form}
   return render(request,'groomnid.html',context)
 
-
+@login_required
 def checkgroomsbc(request):
   if request.method == "POST":
     form = GroomBirthCertificateForm(request.POST)
@@ -185,7 +187,7 @@ def checkgroomsbc(request):
   return render(request,'groomnid.html',context)
 
 
-
+@login_required
 def checkgroomspp(request):
   if request.method == "POST":
     form = GroomPassportForm(request.POST)
@@ -223,10 +225,10 @@ def checkgroomspp(request):
 # def fail(request):
   # return render(request,'bridenid.html',context={'msg':'This person is not married'})
 
-class CustomerListview(ListView):
+class CustomerListview(LoginRequiredMixin,ListView):
   model = MarriageRegister
   template_name = 'main.html'
-
+@login_required
 def customer_render_pdf_view(request, *args, **kwargs):
   pk = kwargs.get('pk')
   customer = get_object_or_404(MarriageRegister,pk=pk)

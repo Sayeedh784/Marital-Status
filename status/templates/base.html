@@ -1,235 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html >
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  
-<script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="sha384-VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/css/tether-theme-arrows-dark.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/css/tether-theme-arrows.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/css/tether-theme-basic.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/css/tether.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
-
-<style>
- .navbar-nav {
-            margin-right: auto;
-            text-align: right;
-            
-        }
-	.dropdown-submenu {
-	    position: relative;
-	}
-	.dropdown-submenu > .dropdown-menu {
-	    top: 0;
-	    left: 100%;
-	    margin-top: -6px;
-	    margin-left: 0;
-	    border-radius: 0.25rem;
-	}
-	.dropdown-submenu:hover > .dropdown-menu {
-	    display: block;
-	}
-	.dropdown-submenu > a::after {
-		border-bottom: 0.3em solid transparent;
-		border-left-color: inherit;
-		border-left-style: solid;
-		border-left-width: 0.3em;
-		border-top: 0.3em solid transparent;
-		content: " ";
-		display: block;
-		float: right;
-		height: 0;
-		margin-right: -0.6em;
-		margin-top: -0.95em;
-		width: 0;
-	}
-	.dropdown-submenu.pull-left {
-	    float: none;
-	}
-	.dropdown-submenu.pull-left > .dropdown-menu {
-	    left: -75%;
-	}
-	.dropdown-menu .divider {
-		background-color: #e5e5e5;
-		height: 1px;
-		margin: 9px 0;
-		overflow: hidden;
-	}
+  <title>Marital Status</title>
+  <base target="_self">
+  <meta name="description" content="A simple way to show navbar submenus on hover in Bootstrap 4" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style type="text/css">.navbar-nav li:hover > ul.dropdown-menu {
+    display: block;
+}
+.dropdown-submenu {
+    position:relative;
+}
+.dropdown-submenu>.dropdown-menu {
+    top:0;
+    left:100%;
+    margin-top:-6px;
+}
+/* rotate caret on hover */
+.dropdown-menu > li > a:hover:after {
+    text-decoration: underline;
+    transform: rotate(-90deg);
+} 
 </style>
-
-
 </head>
-<body>
-  <div class="navbar navbar-expand-lg navbar-light bg-info ">
-    <a class="navbar-brand" href="#">Marital Status</a>
-      <ul class="nav navbar-nav navbar-right">
-          <li class="active nav-item">
-          <a class="nav-link" href="{% url 'home' %}">Home </a>
-          </li>
-          {% if user.is_authenticated%}
-          {% if request.user.is_staff %}
-          <li class="active nav-item">
-            <a class="nav-link" href="{% url 'register' %}">Registration</a>
-            </li>
-            <li class="active nav-item">
-              <a class="nav-link" href="{% url 'list-view' %}">Marriage certificate</a>
-              </li>
-              {% endif %}
-              {% endif %}
-              
-              
-              
-              
-              
-          <li class="nav-item dropdown">
-              <a href="#" class="dropdown-toggle nav-link active" data-toggle="dropdown">Check Status</a>
-              <ul class="nav navbar-nav dropdown-menu">
-                <li class="dropdown-submenu">
-                  <a class="dropdown-toggle dropdown-item" data-toggle="dropdown" href="#" data-toggle="dropdown">For Groom</a>
-                  <ul class="nav navbar-nav dropdown-menu">
-                      <li><a class="dropdown-item" href="{% url 'groomsnid' %}">Via NID</a></li>
-                      <li><a class="dropdown-item" href="{% url 'groomspp' %}">Via Passport</a></li>
-                      <li><a class="dropdown-item" href="{% url 'groomsbc' %}">Via Birth Certificate</a></li>
-                    </ul>
-                  <li class="dropdown-submenu">
-                      <a class="dropdown-toggle dropdown-item" data-toggle="dropdown" href="#" data-toggle="dropdown">For Bride</a>
-                      <ul class="nav navbar-nav dropdown-menu">
-                          <li><a class="dropdown-item" href="{% url 'bridenid' %}">Via NID</a></li>
-                          <li><a class="dropdown-item" href="{% url 'bridepassport' %}">Via Passport</a></li>
-                          <li><a class="dropdown-item" href="{% url 'bridebc' %}">Via Birth Certificate</a></li>
-                      
-                  </li>
-              </ul>
-          </li>
-          
-      </ul>
-      {% if not user.is_authenticated%}
-      <li class="active nav-item">
-        <a class="nav-link" href="{% url 'login' %}" >Login</a>
+<body >
+  <nav class="navbar navbar-expand-md navbar-light bg-info mb-auto">
+    <h2>Marital Status</h2>
+  <!-- <a class="navbar-brand pb-2" href="#">Navbar</a> -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
       </li>
-      {% else %}
-      <li class="active nav-item">
-        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+      {% if user.is_authenticated%}
+      {% if request.user.is_staff %}
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'register' %}">Marriage registration</a>
       </li>
       {% endif %}
+      {% endif %}
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle active" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Check Status
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="">For Bride</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'bridenid' %}">Via NID</a></li>
+              <li><a class="dropdown-item" href="{% url 'bridepp' %}">Via Passport</a></li>
+              <li><a class="dropdown-item" href="{% url 'bridebc' %}">Via Birth Certificate</a></li>
+            </ul>
+          </li>
+          <!-- <li><a class="dropdown-item" href="#">Action</a></li> -->
+          <!-- <li><a class="dropdown-item" href="#">Another action</a></li> -->
+          <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="">For Groom</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'groomsnid' %}">Via NID</a></li>
+              <li><a class="dropdown-item" href="{% url 'groomspp' %}">Via Passport</a></li>
+              <li><a class="dropdown-item" href="{% url 'groomsbc' %}">Via Birth Certificate</a></li>
+            </ul>
+          </li>
+        </ul>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'list-view' %}">Marriage Certificate</a>
+        </li>
+        {% if not user.is_authenticated%}
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
+        </li>
+        {% else %}
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+        </li>
+        {% endif %}
+      </li>
+    </ul>
+   
+   
+   
   </div>
+</nav>
+{% block content %}
+{% endblock content %}
 
-  {% block content %}
-  {% endblock content %}
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
-</html>
-
-
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	
-
-		
-		
-		
-		
-
-		
-		
-		
-		
-		
-		
-		
-
-		
-		
-		
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-
-		
-		
-		
-
-		
-		
-		
-
-		
-		
-		
-		
-		
-		
-
-		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	</body>
-
 </html>

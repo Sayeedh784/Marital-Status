@@ -10,7 +10,7 @@ urlpatterns=[
   path('register/',views.marriageregister,name='register'),
   path('bridenid/',views.checkbridesNid,name='bridenid'),
   path('bridebc/',views.checkbridesbc,name='bridebc'),
-  path('bridepassport/',views.checkbridespp,name='bridepassport'),
+  path('bridepassport/',views.checkbridespp,name='bridepp'),
 
   path('groomsnid/',views.checkgroomsNid, name='groomsnid'),
   path('groomsbc/',views.checkgroomsbc, name='groomsbc'),

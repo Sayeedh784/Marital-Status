@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<center><h1>Check Marital Status</h1></center>
+<hr><hr>
+<br><br>
+
+
+<br><br>
+<div class="container">
+  <form method="POST">
+      {% csrf_token %}
+      {{form|crispy}}
+      <div class="form-group">
+      <button href="" class="btn btn-success" type="submit">Submit</button>
+          
+      </div>
+  </form>
+  
+</div>
+
+<center><h2>{{msg}}</h2></center>
+{% endblock content %}

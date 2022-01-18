@@ -4,9 +4,237 @@
 
 {% block content %}
 
-<center><h1>Check Marital Status</h1></center>
-<hr><hr>
+<center>
+  <h1>Check Marital Status</h1>
+</center>
+<hr>
+<hr>
 <br><br>
-<center><h2>{{msg}}</h2></center>
+<center>
+  <h2>{{msg}}</h2>
+</center>
+<br><br>
+
+<br>
+{% if check %}
+<div class="container">
+  <h1>Marriage Details:</h1>
+  <br>
+  <div class="row align-items-center">
+    <div class="col-md-5">
+
+      <div class="card">
+        <img src="{{ check.brideImages.url }}" height="200px" class="card-img-top" alt="bride image">
+        <div class="card-body">
+          <h5 class="card-title text-center">{{check.brideName}}</h5>
+
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 ">
+      <center><h1 class=""> Weds</h1></center>
+    </div>
+    <div class="col-md-5">
+
+      <div class="card">
+        <img src="{{ check.groomImages.url }}" height="200px" class="card-img-top" alt="bride image">
+        <div class="card-body">
+          <h5 class="card-title text-center">{{check.groomsName}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br><br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card ">
+        <div class="card-header"><b> Bride's Information</b></div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-4  text-muted">
+              <p><b> Bride's name:</b></p>
+            </div>
+            <div class="col-6">
+              <p>{{check.brideName}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4 text-muted">
+              <p><b> Bride's NID:</b></p>
+            </div>
+            <div class="col-6">
+              <p>{{check.bridesNid}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4 text-muted">
+              <p><b> Bride's Birthcertificate:</b></p>
+            </div>
+            <div class="col-6">
+              <p>{{check.bridesBirthCertificate}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4 text-muted">
+              <p><b> Bride's Passport no:</b></p>
+            </div>
+            <div class="col-6">
+              <p>{{check.bridesPassport}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4 text-muted">
+              <p><b> Bride's Father's name:</b></p>
+            </div>
+            <div class="col-6">
+              <p>{{check.bridesFathersname}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4 text-muted">
+              <p><b> Bride's Father's NID:</b></p>
+            </div>
+            <div class="col-6">
+              <p>{{check.bridesFathersNid}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4 text-muted">
+              <p><b> Bride's Mother's name:</b></p>
+            </div>
+            <div class="col-6">
+              <p>{{check.bridesMothersname}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4 text-muted">
+              <p><b> Bride's Mother's NID:</b></p>
+            </div>
+            <div class="col-6">
+              <p>{{check.bridesMothersNid}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4 text-muted">
+              <p><b> Bride's Occupation:</b></p>
+            </div>
+            <div class="col-6">
+              <p>{{check.bridesOccupation}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4 text-muted">
+              <p><b> Bride's Workplace:</b></p>
+            </div>
+            <div class="col-6">
+              <p>{{check.bridesWorkplace}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-6">
+      <div class="card ">
+        <div class="card-header"><b> Groom's Information</b></div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-4  text-muted">
+              <p><b> Groom's name:</b></p>
+            </div>
+            <div class="col-6">
+              <p>{{check.groomsName}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4 text-muted">
+              <p><b> Groom's NID:</b></p>
+            </div>
+            <div class="col-6">
+              <p>{{check.groomsNid}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4 text-muted">
+              <p><b> Groom's Birthcertificate:</b></p>
+            </div>
+            <div class="col-6">
+              <p>{{check.groomsBirthCertificate}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4 text-muted">
+              <p><b> Groom's Passport no:</b></p>
+            </div>
+            <div class="col-6">
+              <p>{{check.groomsPassport}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4 text-muted">
+              <p><b> Groom's Father's name:</b></p>
+            </div>
+            <div class="col-6">
+              <p>{{check.groomsFathersname}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4 text-muted">
+              <p><b> Groom's Father's NID:</b></p>
+            </div>
+            <div class="col-6">
+              <p>{{check.groomsFathersNid}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4 text-muted">
+              <p><b> Groom's Mother's name:</b></p>
+            </div>
+            <div class="col-6">
+              <p>{{check.groomsMothersname}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4 text-muted">
+              <p><b> Groom's Mother's NID:</b></p>
+            </div>
+            <div class="col-6">
+              <p>{{check.groomsMothersNid}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4 text-muted">
+              <p><b> Groom's Occupation:</b></p>
+            </div>
+            <div class="col-6">
+              <p>{{check.groomsOccupation}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4 text-muted">
+              <p><b> Groom's Workplace:</b>
+            </div>
+            <div class="col-6">
+              <p>{{check.groomsWorkplace}}</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div class="container mb-5">
+   <a href="{% url 'pdf-view' check.pk %}"><button class="btn btn-primary">Download pdf</button></a>
+</div>
+{% endif %}
+
 
 {% endblock %}

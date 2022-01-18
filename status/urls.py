@@ -1,8 +1,8 @@
-from os import name
 from django.urls import path
 from . import views
 from .views import *
-
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns=[
@@ -20,8 +20,9 @@ urlpatterns=[
   # path('pdf/',views.generatepdf,name='pdf')
   # path('bridenid/success/',views.success),
   # path('bridenid/fail/',views.fail)
-  path('test/', views.render_pdf_view,name='test-view'),
-  path('list/', views.CustomerListview.as_view(),name='list-view'),
-  path('pdf/<int:pk>/', views.customer_render_pdf_view,name='pdf-view')
+  #path('test/', views.render_pdf_view,name='test-view'),
+  #path('list/', views.CustomerListview.as_view(),name='list-view'),
+  path('pdf/<int:pk>/', views.customer_render_pdf_view,name='pdf-view'),
+ #path('create-pdf', views.pdf_report_create, name='create-pdf'),
   
-]
+] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

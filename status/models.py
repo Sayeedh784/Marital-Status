@@ -15,8 +15,8 @@ class MarriageRegister(models.Model):
   bridesMothersNid = models.CharField(max_length=50,null=True,blank=True)
   bridesOccupation = models.CharField(max_length=50,null=True,blank=True)
   bridesWorkplace = models.CharField(max_length=50,null=True,blank=True)
-  brideImages = models.ImageField(upload_to='static/images',null=True,blank=True)
-  brideSignature = models.ImageField(upload_to='static/images',null=True,blank=True)
+  brideImages = models.ImageField(upload_to='images/',null=True,blank=True)
+  brideSignature = models.ImageField(upload_to='images/',null=True,blank=True)
   groomsName=models.CharField(max_length=50,blank=True,null=True)
   groomsNid=models.CharField(max_length=100,null=True,blank=True)
   groomsBirthCertificate=models.CharField(max_length=100,null=True,blank=True)
@@ -27,8 +27,8 @@ class MarriageRegister(models.Model):
   groomsMothersNid = models.CharField(max_length=50,null=True,blank=True)
   groomsOccupation = models.CharField(max_length=50,null=True,blank=True)
   groomsWorkplace = models.CharField(max_length=50,null=True,blank=True)
-  groomImages = models.ImageField(upload_to='static/images',null=True,blank=True)
-  groomSignature = models.ImageField(upload_to='static/images',null=True,blank=True)
+  groomImages = models.ImageField(upload_to='images/',null=True,blank=True)
+  groomSignature = models.ImageField(upload_to='images/',null=True,blank=True)
   firstAttestor=models.CharField(max_length=50,null=True,blank=True)
   firstAttestorNid=models.CharField(max_length=50,null=True,blank=True)
   secondAttestor=models.CharField(max_length=50,null=True,blank=True)
@@ -40,7 +40,7 @@ class MarriageRegister(models.Model):
 
 
   def __str__(self):
-    return self.serialNo
+    return str(self.id)
   
   
 

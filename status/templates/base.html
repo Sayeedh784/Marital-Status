@@ -27,7 +27,7 @@
 </style>
 </head>
 <body >
-  <nav class="navbar navbar-expand-md navbar-light bg-info mb-auto">
+  <nav class="navbar navbar-expand-md navbar-dark bg-info mb-auto">
     <h2>Marital Status</h2>
   <!-- <a class="navbar-brand pb-2" href="#">Navbar</a> -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,7 +38,7 @@
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
       </li>
-      {% if user.is_authenticated%}
+      {% if user.is_authenticated %}
       {% if request.user.is_staff %}
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'register' %}">Marriage registration</a>
@@ -67,9 +67,7 @@
             </ul>
           </li>
         </ul>
-        <li class="nav-item active">
-          <a class="nav-link" href="{% url 'list-view' %}">Marriage Certificate</a>
-        </li>
+        
         {% if not user.is_authenticated%}
         <li class="nav-item active">
           <a class="nav-link" href="{% url 'login' %}">Login</a>

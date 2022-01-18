@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.http import Http404
 from django.template.loader import get_template
 from xhtml2pdf import pisa
+from django.template.loader import get_template
 from django.views.generic import ListView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -56,11 +57,11 @@ def checkbridesNid(request):
         check = None
       if check is not None:
         # return HttpResponseRedirect('/bridenid/success')
-        return render(request,'bridenidshow.html',context={'msg':'This person is married'})
+        return render(request,'bridenidshow.html',context={'msg':'This person is married','check':check})
         
       else:
         # return HttpResponseRedirect('/bridenid/fail')
-        return render(request,'bridenidshow.html',context={'msg': 'This person is not married'})
+        return render(request,'bridenidshow.html',context={'msg': 'This person is not married','check':check})
         
   else:
     form =BrideNidForm()
@@ -85,7 +86,7 @@ def checkbridesbc(request):
         check = None
       if check is not None:
         # return HttpResponseRedirect('/bridenid/success')
-        return render(request,'bridenidshow.html',context={'msg':'This person is married'})
+        return render(request,'bridenidshow.html',context={'msg':'This person is married','check':check})
         
       else:
         # return HttpResponseRedirect('/bridenid/fail')
@@ -114,11 +115,11 @@ def checkbridespp(request):
         check = None
       if check is not None:
         # return HttpResponseRedirect('/bridenid/success')
-        return render(request,'bridenidshow.html',context={'msg':'This person is married'})
+        return render(request,'bridenidshow.html',context={'msg':'This person is married','check':check})
         
       else:
         # return HttpResponseRedirect('/bridenid/fail')
-        return render(request,'bridenidshow.html',context={'msg': 'This person is not married'})
+        return render(request,'bridenidshow.html',context={'msg': 'This person is not married','check':check})
         
   else:
     form =BridePassportForm()
@@ -144,11 +145,11 @@ def checkgroomsNid(request):
         check = None
       if check is not None:
         # return HttpResponseRedirect('/bridenid/success')
-        return render(request,'bridenidshow.html',context={'msg':'This person is married'})
+        return render(request,'bridenidshow.html',context={'msg':'This person is married','check':check})
         
       else:
         # return HttpResponseRedirect('/bridenid/fail')
-        return render(request,'bridenidshow.html',context={'msg': 'This person is not married'})
+        return render(request,'bridenidshow.html',context={'msg': 'This person is not married','check':check})
         
   else:
     form =GroomNidForm()
@@ -173,11 +174,11 @@ def checkgroomsbc(request):
         check = None
       if check is not None:
         # return HttpResponseRedirect('/bridenid/success')
-        return render(request,'bridenidshow.html',context={'msg':'This person is married'})
+        return render(request,'bridenidshow.html',context={'msg':'This person is married','check':check})
         
       else:
         # return HttpResponseRedirect('/bridenid/fail')
-        return render(request,'bridenidshow.html',context={'msg': 'This person is not married'})
+        return render(request,'bridenidshow.html',context={'msg': 'This person is not married','check':check})
         
   else:
     form = GroomBirthCertificateForm()
@@ -203,11 +204,11 @@ def checkgroomspp(request):
         check = None
       if check is not None:
         # return HttpResponseRedirect('/bridenid/success')
-        return render(request,'bridenidshow.html',context={'msg':'This person is married'})
+        return render(request,'bridenidshow.html',context={'msg':'This person is married','check':check})
         
       else:
         # return HttpResponseRedirect('/bridenid/fail')
-        return render(request,'bridenidshow.html',context={'msg': 'This person is not married'})
+        return render(request,'bridenidshow.html',context={'msg': 'This person is not married','check':check})
         
   else:
     form = GroomPassportForm()
@@ -225,14 +226,15 @@ def checkgroomspp(request):
 # def fail(request):
   # return render(request,'bridenid.html',context={'msg':'This person is not married'})
 
-class CustomerListview(LoginRequiredMixin,ListView):
-  model = MarriageRegister
-  template_name = 'main.html'
+# class CustomerListview(LoginRequiredMixin,ListView):
+#   model = MarriageRegister
+#   template_name = 'bridenidshow.html'
+
 @login_required
 def customer_render_pdf_view(request, *args, **kwargs):
   pk = kwargs.get('pk')
   customer = get_object_or_404(MarriageRegister,pk=pk)
-  template_path = 'pdf2.html'
+  template_path = 'pdf1.html'
   context = {'customer':customer}
   # Create a Django response object, and specify content_type as pdf
   response = HttpResponse(content_type='application/pdf')
@@ -248,20 +250,5 @@ def customer_render_pdf_view(request, *args, **kwargs):
     return HttpResponse('We had some errors <pre>' + html + '</pre>')
   return response
 
-def render_pdf_view(request):
-    template_path = 'pdf1.html'
-    context = {'myvar': 'this is your template context'}
-    # Create a Django response object, and specify content_type as pdf
-    response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = 'filename="report.pdf"'
-    # find the template and render it.
-    template = get_template(template_path)
-    html = template.render(context)
 
-    # create a pdf
-    pisa_status = pisa.CreatePDF(
-       html, dest=response)
-    # if error then show some funy view
-    if pisa_status.err:
-       return HttpResponse('We had some errors <pre>' + html + '</pre>')
-    return response
+

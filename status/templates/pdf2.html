@@ -1,65 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    .back{
-      
-      align-items: right;
-      margin-right: auto;
-    }
-  </style>
-</head>
-<body>
-<h1>{{customer.brideName}} weds {{customer.groomsName}} </h1>
-  <h1>Brides informations</h1>
-  Wedding serial: {{customer.serialNo}}<br>
-  Bride name: {{customer.brideName}}
-  <br>
-  Bride Nid: {{customer.bridesNid}}
-  <br>
-  Bride Birth Certificate: {{customer.bridesBirthCertificate}}<br>
-  Bride Passport: {{customer.bridesPassport}}<br>
-  Bride Father's Name:{{customer.bridesFathersname}}<br>
-  Bride Father's Nid: {{customer.bridesFathersNid}}<br>
-  Bride Mother's Name:{{customer.bridesMothersname}}<br>
-  Bride Father's Nid:{{customer.bridesMothersNid}}<br>
-  Bride Occupation: {{customer.bridesOccupation}}<br>
-  Bride worlplace: {{customer.bridesWorkplace}}<br>
-  {{customer.brideImages}}<br>
-  
-  Bride Signature: {{customer.brideSignature}}<br>
-  
-  <hr>
-  <h1>Grooms informations</h1>
-  Groom name: {{customer.groomsName}}<br>
-  Groom Nid: {{customer.groomsNid}}<br>
-  Groom Birth Certificate: {{customer.groomsBirthCertificate}}<br>
-  Groom passport: {{customer.groomsPassport}}<br>
-  Groom Father's name: {{customer.groomsFathersname}}<br>
-  Groom Father's Nid: {{customer.groomsFathersNid}}<br>
-  Groom Mother's name: {{customer.groomsMothersname}}<br>
-  Groom mother's Nid: {{customer.groomsMothersNid}}<br>
-  GroomsOccupation: {{customer.groomsOccupation}}<br>
-  Groom's Workplace: {{customer.groomsWorkplace}}<br>
-  {{customer.groomImages}}<br>
-  
-  {{customer.groomSignature}}<br>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <hr>
-  <h1>Attestor informations</h1>
-  First Attestor name: {{customer.firstAttestor}}<br>
-  First Attestor Nid:{{customer.firstAttestorNid}}<br>
-  Second Attestor name:{{customer.secondAttestor}}<br>
-  second Attestor Nid:{{customer.secondAttestorNid}}<br>
-  Thirs Attestor name:{{customer.thirdAttestor}}<br>
-  Third Attestor Nid:{{customer.thirdAttestorNid}}<br>
-  Marriage place: {{customer.marrige_place}}<br>
-  Mariage Date:{{customer.marriage_date}}<br>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="container">
+      <img src="{{ customer.brideImages.path }}" alt="" height="100px" width="80px">
+    </div>
+    <table class="table">
+  <thead>
+    <tr>
+     <center> <th scope="col">Bride Informations</th></center>
+    </tr>
+    
+  </thead>
+  <tbody>
+    <br>
+    <tr>
+      <th scope="row">Bride Name:</th>
+      <td>{{ customer.brideName }}</td>
+      <td><img src="{{ customer.brideImages.path }}" alt="" height="200px" width="150px"></td>
+    </tr>
+  </tbody>
+
   
-  
-</body>
+  <tbody>
+    <tr>
+      <th scope="row" class="text-start">Bride Passport:</th>
+      <td>{{customer.bridesPassport}}</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <th scope="row" class="text-start">Brides NID:</th>
+      <td>{{ customer.bridesNid }}</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <th scope="row">Brides Birthcertificate:</th>
+      <td>{{ customer.bridesBirthCertificate }}</td>
+    </tr>
+  </tbody>
+</table>
+   
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    
+  </body>
 </html>

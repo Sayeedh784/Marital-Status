@@ -24,13 +24,13 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="{% static 'css/images/m1.jpg' %}" alt="First slide">
+      <img class="d-block w-100" src="{% static 'css/images/m6.jpg' %}" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="{% static 'css/images/m2.jpg' %}" alt="Second slide">
+      <img class="d-block w-100" src="{% static 'css/images/cover2.jpg' %}" alt="Second slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="{% static 'css/images/m3.jpg' %}" alt="Third slide">
+      <img class="d-block w-100" src="{% static 'css/images/m4.jpg' %}" alt="Third slide">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -43,9 +43,79 @@
   </a>
 </div><br>
 
-<h1>Marital Status</h1>
-<h4>In this site we can register for marriage. And we can check Any one marital Status by using Nid,passport and Birth Certificate. we also can download marrige certificate at any time as a pdf. </h4>
-<br>
-<h4>Here has good authentication system. No one can access in registration from for register except admin. 
-</h4><br>
+<!-- <div class="container">
+  <h1>Marital Status</h1>
+  <h4>In this site we can register for marriage. And we can check Any one marital Status by using Nid,passport and Birth
+    Certificate. we also can download marrige certificate at any time as a pdf. </h4>
+  <br>
+  <h4>Here has good authentication system. No one can access in registration from for register except admin.
+  </h4><br>
+</div> -->
+<br><br>
+<div class="container">
+  <h2><center>Why this is important?</center></h2><br>
+  <h5>A marriage certificate is an important document to have for married couples. It serves as the legal proof of
+  marriage between two individuals. Getting their marriage registered and having a marriage certificate is necessary for
+  married couples in order to avail a number of services/facilities in the country.</h5>
+</div>
+<br><br>
+<style>
+  #card{
+    transition: all 0.6s ease-in-out;
+    border-bottom: orange solid 3px;
+  }
+  #card:hover{
+    
+    transform: scale(1.1);
+  }
+</style>
+
+<div class="container">
+  <h2><center>Features</center></h2>
+  <br><br>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card shadow h-100" id="card">
+        <div class="card-header" style="background-color: rgb(243, 177, 53); color: white;">
+         <center><b>Search by NID</b></center>
+        </div>
+        <div class="card-body">
+          Here, you can check someone is marriage or not by NID and also can download the certificate of marriage register.
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card h-100 shadow" id="card">
+        <div class="card-header"  style="background-color: rgb(243, 177, 53); color: white;">
+          <center><b>Search by Passport</b></center>
+        </div>
+        <div class="card-body">
+          Here, you can check someone is marriage or not by NID and also can download the certificate of marriage register.
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow h-100" id="card">
+        <div class="card-header" id="" style="background-color: rgb(243, 177, 53); color: white;">
+        <center><b>Search by Birthcertificate</b></center>
+        </div>
+        <div class="card-body">
+          Here, you can check someone is marriage or not by NID and also can download the certificate of marriage register.
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow h-100" id="card">
+        <div class="card-header" style="background-color: rgb(243, 177, 53); color: white;">
+          <center><b>Download the PDF</b></center>
+        </div>
+        <div class="card-body">
+          Here, you can check someone is marriage or not by NID and also can download the certificate of marriage register.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br><br>
+
 {% endblock content %}

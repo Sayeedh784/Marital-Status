@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from numpy import true_divide
 
 
 # Create your models here.
@@ -8,6 +9,7 @@ class MarriageRegister(models.Model):
   brideName=models.CharField(max_length=50,blank=True,null=True)
   bridesNid=models.CharField(max_length=100,null=True,blank=True)
   bridesBirthCertificate=models.CharField(max_length=100,null=True,blank=True)
+  bridemobile=models.CharField(max_length=20,blank=True,null=True)
   bridesPassport=models.CharField(max_length=100,null=True,blank=True)
   bridesFathersname=models.CharField(max_length=50,null=True,blank=True)
   bridesFathersNid=models.CharField(max_length=50,null=True,blank=True)
@@ -21,6 +23,7 @@ class MarriageRegister(models.Model):
   groomsNid=models.CharField(max_length=100,null=True,blank=True)
   groomsBirthCertificate=models.CharField(max_length=100,null=True,blank=True)
   groomsPassport=models.CharField(max_length=100,null=True,blank=True)
+  groommobile=models.CharField(max_length=20,blank=True,null=True)
   groomsFathersname=models.CharField(max_length=50,null=True,blank=True)
   groomsFathersNid=models.CharField(max_length=50,null=True,blank=True)
   groomsMothersname= models.CharField(max_length=50,null=True,blank=True)

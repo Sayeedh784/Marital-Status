@@ -16,25 +16,25 @@ class UserRegistrationForm(UserCreationForm):
 class BrideNidForm(forms.ModelForm):
   class Meta:
     model = MarriageRegister
-    fields = ['bridesNid']
+    fields = ['bridesNid','bridemobile']
 
 class BrideBirthCertificateForm(forms.ModelForm):
   class Meta:
     model = MarriageRegister
-    fields = ['bridesBirthCertificate']
+    fields = ['bridesBirthCertificate','bridemobile']
 class BridePassportForm(forms.ModelForm):
   class Meta:
     model = MarriageRegister
-    fields = ['bridesPassport']
+    fields = ['bridesPassport','bridemobile']
 class GroomNidForm(forms.ModelForm):
   class Meta:
     model = MarriageRegister
-    fields = ['groomsNid']
+    fields = ['groomsNid','groommobile']
 class GroomBirthCertificateForm(forms.ModelForm):
   class Meta:
     model = MarriageRegister
-    fields = ['groomsBirthCertificate']
+    fields = ['groomsBirthCertificate','groommobile']
 class GroomPassportForm(forms.ModelForm):
   class Meta:
     model = MarriageRegister
-    fields = ['groomsPassport']
+    fields = ['groomsPassport','groommobile']

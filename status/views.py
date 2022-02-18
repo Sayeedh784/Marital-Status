@@ -47,9 +47,10 @@ def checkbridesNid(request):
     form = BrideNidForm(request.POST)
     if form.is_valid():
       bridesNid = form.cleaned_data["bridesNid"]
+      bridemobile=form.cleaned_data["bridemobile"]
       
       try:
-        check=MarriageRegister.objects.get(bridesNid=bridesNid)
+        check=MarriageRegister.objects.get(bridesNid=bridesNid,bridemobile=bridemobile)
         
 
         #return HttpResponseRedirect('/bridenid/success')
@@ -76,9 +77,10 @@ def checkbridesbc(request):
     form = BrideBirthCertificateForm(request.POST)
     if form.is_valid():
       bridesBirthCertificate = form.cleaned_data["bridesBirthCertificate"]
+      bridemobile = form.cleaned_data["bridemobile"]
       
       try:
-        check=MarriageRegister.objects.get(bridesBirthCertificate=bridesBirthCertificate)
+        check=MarriageRegister.objects.get(bridesBirthCertificate=bridesBirthCertificate,bridemobile=bridemobile)
         
 
         #return HttpResponseRedirect('/bridenid/success')
@@ -105,9 +107,10 @@ def checkbridespp(request):
     form = BridePassportForm(request.POST)
     if form.is_valid():
       bridesPassport = form.cleaned_data["bridesPassport"]
+      bridemobile = form.cleaned_data["bridemobile"]
       
       try:
-        check=MarriageRegister.objects.get(bridesPassport=bridesPassport)
+        check=MarriageRegister.objects.get(bridesPassport=bridesPassport,bridemobile=bridemobile)
         
 
         #return HttpResponseRedirect('/bridenid/success')
@@ -135,9 +138,10 @@ def checkgroomsNid(request):
     form = GroomNidForm(request.POST)
     if form.is_valid():
       groomsNid = form.cleaned_data["groomsNid"]
+      groommobile = form.cleaned_data["groommobile"]
       
       try:
-        check=MarriageRegister.objects.get(groomsNid=groomsNid)
+        check=MarriageRegister.objects.get(groomsNid=groomsNid,groommobile=groommobile)
         
 
         #return HttpResponseRedirect('/bridenid/success')
@@ -164,9 +168,10 @@ def checkgroomsbc(request):
     form = GroomBirthCertificateForm(request.POST)
     if form.is_valid():
       groomsBirthCertificate = form.cleaned_data["groomsBirthCertificate"]
+      groommobile = form.cleaned_data["groommobile"]
       
       try:
-        check=MarriageRegister.objects.get(groomsBirthCertificate=groomsBirthCertificate)
+        check=MarriageRegister.objects.get(groomsBirthCertificate=groomsBirthCertificate,groommobile=groommobile)
         
 
         #return HttpResponseRedirect('/bridenid/success')
@@ -194,9 +199,10 @@ def checkgroomspp(request):
     form = GroomPassportForm(request.POST)
     if form.is_valid():
       groomsPassport = form.cleaned_data["groomsPassport"]
+      groommobile = form.cleaned_data["groommobile"]
       
       try:
-        check=MarriageRegister.objects.get(groomsPassport=groomsPassport)
+        check=MarriageRegister.objects.get(groomsPassport=groomsPassport,groommobile=groommobile)
         
 
         #return HttpResponseRedirect('/bridenid/success')

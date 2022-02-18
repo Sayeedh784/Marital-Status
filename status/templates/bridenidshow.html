@@ -5,7 +5,7 @@
 {% block content %}
 
 <center>
-  <h1>Check Marital Status</h1>
+  <h2 class="my-5">Check Marital Status</h2>
 </center>
 <hr>
 <hr>
@@ -18,13 +18,13 @@
 <br>
 {% if check %}
 <div class="container">
-  <h1>Marriage Details:</h1>
+  <h2>Marriage Details:</h2>
   <br>
   <div class="row align-items-center">
     <div class="col-md-5">
 
-      <div class="card">
-        <img src="{{ check.brideImages.url }}" height="200px" class="card-img-top" alt="bride image">
+      <div class="card shadow">
+        <img src="{{ check.brideImages.url }}" style="width: 100%; height: 200px;" class="card-img-top" alt="bride image">
         <div class="card-body">
           <h5 class="card-title text-center">{{check.brideName}}</h5>
 
@@ -33,12 +33,12 @@
       </div>
     </div>
     <div class="col-md-2 ">
-      <center><h1 class=""> Weds</h1></center>
+      <center><h2 class=""> Weds</h2></center>
     </div>
     <div class="col-md-5">
 
-      <div class="card">
-        <img src="{{ check.groomImages.url }}" height="200px" class="card-img-top" alt="bride image">
+      <div class="card shadow">
+        <img src="{{ check.groomImages.url }}" style="width: 100%; height: 200px;" class="card-img-top" alt="bride image">
         <div class="card-body">
           <h5 class="card-title text-center">{{check.groomsName}}</h5>
         </div>
@@ -232,7 +232,9 @@
 </div>
 <br>
 <div class="container mb-5">
-   <a href="{% url 'pdf-view' check.pk %}"><button class="btn btn-primary">Download pdf</button></a>
+   <!-- <a href="{% url 'pdf-view' check.pk %}"><button class="btn btn-primary">Download pdf</button></a> -->
+    <button class="btn btn-outline-primary" type="" onclick="window.print()">Download as pdf</button>
+  
 </div>
 {% endif %}
 

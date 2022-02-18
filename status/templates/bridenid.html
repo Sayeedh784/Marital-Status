@@ -4,23 +4,26 @@
 
 {% block content %}
 
+<div class="container my-5">
 <center><h1>Check Marital Status</h1></center>
 <hr>
+</div>
 <br><br>
 
 
 <br><br>
-<div class="container">
+<div class="container my-5" style="padding: 20px;">
   <form method="POST">
       {% csrf_token %}
       {{form|crispy}}
+      <br>
       <div class="form-group">
-      <button href="" class="btn btn-success" type="submit">Submit</button>
+      <button href="" class="btn btn-primary" type="submit">Submit</button>
           
       </div>
   </form>
   
 </div>
-
+<br><br><br><br><br><br>
 <center><h2>{{msg}}</h2></center>
 {% endblock content %}

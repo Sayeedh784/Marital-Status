@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from numpy import true_divide
+
 
 
 # Create your models here.

@@ -16,7 +16,7 @@ urlpatterns=[
   path('groomsbc/',views.checkgroomsbc, name='groomsbc'),
   path('groomspp/',views.checkgroomspp, name='groomspp'),
   path('bridenidshow/',views.checkbridesNid,name='bridenidshow'),
-  path('pdf/<int:pk>/', views.customer_render_pdf_view,name='pdf-view'),
+  
 
   
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

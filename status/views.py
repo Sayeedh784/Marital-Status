@@ -15,7 +15,7 @@ def home(request):
 
 def marriageregister(request):
   if request.method == "POST":
-    form = ResgisterForm(request.POST)
+    form = ResgisterForm(request.POST,request.FILES)
     if form.is_valid():
       form.save()
       form = ResgisterForm()
@@ -232,9 +232,9 @@ def checkgroomspp(request):
 # def fail(request):
   # return render(request,'bridenid.html',context={'msg':'This person is not married'})
 
-# class CustomerListview(LoginRequiredMixin,ListView):
-#   model = MarriageRegister
-#   template_name = 'bridenidshow.html'
+class CustomerListview(LoginRequiredMixin,ListView):
+  model = MarriageRegister
+  template_name = 'bridenidshow.html'
 
 @login_required
 def customer_render_pdf_view(request, *args, **kwargs):
@@ -256,5 +256,27 @@ def customer_render_pdf_view(request, *args, **kwargs):
     return HttpResponse('We had some errors <pre>' + html + '</pre>')
   return response
 
+def pdf_report_create(request):
+    products = MarriageRegister.objects.all()
+
+    template_path = 'pdf1.html'
+
+    context = {'products': products}
+
+    response = HttpResponse(content_type='application/pdf')
+
+    response['Content-Disposition'] = 'filename="products_report.pdf"'
+
+    template = get_template(template_path)
+
+    html = template.render(context)
+
+    # create a pdf
+    pisa_status = pisa.CreatePDF(
+       html, dest=response)
+    # if error then show some funy view
+    if pisa_status.err:
+       return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    return response
 
 

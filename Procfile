@@ -1,0 +1,1 @@
+web: gunicorn maritalstatus.wsgi --log-file -

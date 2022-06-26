@@ -71,7 +71,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto ">
+        <ul class="navbar-nav " style=" margin-left: 150PX;" >
           <li class="nav-item active">
             <a  class="nav-link " href="{% url 'home' %}"><b>Home</b><span
                 class="sr-only">(current)</span></a>
@@ -109,14 +109,12 @@
             {% endif %}
             {% endif %}
 
-            {% if user.is_authenticated%}
+          {% if request.user.is_authenticated%}
           <li class="nav-item active">
             <a class="nav-link " href="{% url 'logout' %}"><b>Logout</b></a>
           </li>
           {% else %}
-          <li class="nav-item active">
-            <a class="nav-link ml-3" href="{% url 'registers' %}"><b>Registration</b></a>
-          </li>
+          
           <li class="nav-item active">
             <a class="nav-link ml-3" href="{% url 'login' %}"><b>Login</b></a>
           </li>

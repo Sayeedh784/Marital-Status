@@ -101,6 +101,7 @@
               </li>
             </ul>
             </li>
+<<<<<<< HEAD
               {% if user.is_authenticated %}
               {% if request.user.is_staff %}
               <li class="nav-item active">
@@ -118,6 +119,25 @@
               <li class="nav-item active">
                 <a class="nav-link ml-3" href="{% url 'login' %}"><b>Login</b></a>
               </li>
+=======
+            {% if user.is_authenticated %}
+            {% if request.user.is_staff %}
+            <li class="nav-item active">
+              <a class="nav-link mx-3" href="{% url 'register' %}"><b>Marriage registration</b></a>
+            </li>
+            {% endif %}
+            {% endif %}
+
+          {% if request.user.is_authenticated%}
+          <li class="nav-item active">
+            <a class="nav-link " href="{% url 'logout' %}"><b>Logout</b></a>
+          </li>
+          {% else %}
+          
+          <li class="nav-item active">
+            <a class="nav-link ml-3" href="{% url 'login' %}"><b>Login</b></a>
+          </li>
+>>>>>>> 0c0b5d8fe5db333251049668789439c73b404e49
 
           {% endif %}
          

@@ -41,7 +41,7 @@ def register(request):
   }
   return render(request,'registers.html',context)
 
-@login_required
+
 def checkbridesNid(request):
   if request.method == "POST":
     form = BrideNidForm(request.POST)
@@ -71,7 +71,7 @@ def checkbridesNid(request):
     context={'form':form}
   return render(request,'bridenid.html',context)
 
-@login_required
+
 def checkbridesbc(request):
   if request.method == "POST":
     form = BrideBirthCertificateForm(request.POST)
@@ -101,7 +101,7 @@ def checkbridesbc(request):
     context={'form':form}
   return render(request,'bridenid.html',context)
 
-@login_required
+
 def checkbridespp(request):
   if request.method == "POST":
     form = BridePassportForm(request.POST)
@@ -131,7 +131,7 @@ def checkbridespp(request):
     context={'form':form}
   return render(request,'bridenid.html',context)
 
-@login_required
+
 #grooms status check
 def checkgroomsNid(request):
   if request.method == "POST":
@@ -162,7 +162,7 @@ def checkgroomsNid(request):
     context={'form':form}
   return render(request,'groomnid.html',context)
 
-@login_required
+
 def checkgroomsbc(request):
   if request.method == "POST":
     form = GroomBirthCertificateForm(request.POST)
@@ -193,7 +193,7 @@ def checkgroomsbc(request):
   return render(request,'groomnid.html',context)
 
 
-@login_required
+
 def checkgroomspp(request):
   if request.method == "POST":
     form = GroomPassportForm(request.POST)
@@ -236,7 +236,7 @@ class CustomerListview(LoginRequiredMixin,ListView):
   model = MarriageRegister
   template_name = 'bridenidshow.html'
 
-@login_required
+
 def customer_render_pdf_view(request, *args, **kwargs):
   pk = kwargs.get('pk')
   customer = get_object_or_404(MarriageRegister,pk=pk)
